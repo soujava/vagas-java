@@ -1,0 +1,7 @@
+{
+  "name": "soujavaVagas",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "angular"
+}
