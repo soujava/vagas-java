@@ -1,0 +1,14 @@
+name: Greetings
+
+on: [issues]
+
+jobs:
+  greeting:
+    runs-on: ubuntu-latest
+    permissions:
+      issues: write
+    steps:
+    - uses: actions/first-interaction@v1
+      with:
+        repo-token: ${{ secrets.GITHUB_TOKEN }}
+        issue-message: '😃 Muito obrigado por anunciar sua vaga aqui no Vagas-Java do SouJava! Entre também em nosso Slack nacional de Java em https://javadevbr.herokuapp.com/'
