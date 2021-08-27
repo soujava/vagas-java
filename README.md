@@ -20,7 +20,7 @@ Ainda não temos código de conduta específico para a criação de vagas, mas t
 
 Link: https://github.com/soujava/codigo-de-conduta-slack-javadevbr
 
-#############################################################################################
+####################################################################################
 
 # Java Jobs - Slack Java Dev BR
 
