@@ -16,5 +16,5 @@ jobs:
     - uses: actions/stale@v3
       with:
         repo-token: ${{ secrets.GITHUB_TOKEN }}
-        stale-issue-message: 'Stale issue message'
+        stale-issue-message: 'Esta vaga está sem updates há mais de 1 mês. Por favor feche-a caso não esteja mais disponível'
         stale-issue-label: 'no-issue-activity'
