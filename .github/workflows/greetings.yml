@@ -1,4 +1,4 @@
-name: Greetings
+name: Boas Vindas
 
 on: [issues]
 
@@ -11,4 +11,4 @@ jobs:
     - uses: actions/first-interaction@v1
       with:
         repo-token: ${{ secrets.GITHUB_TOKEN }}
-        issue-message: '😃 Muito obrigado por anunciar sua primeira vaga aqui conosco do repositório nacional oficial de Vagas Java do SouJava! Entre também em nosso Slack nacional de Java em https://javadevbr.herokuapp.com/'
+        issue-message: '😃 Muito obrigado por anunciar sua primeira vaga aqui conosco do repositório nacional oficial de Vagas Java do SouJava! Lembre-se de que também estamos no nosso Slack nacional de Java acessando https://javadevbr.herokuapp.com/'
