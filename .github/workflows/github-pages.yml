@@ -1,0 +1,49 @@
+# This is a basic workflow to help you get started with Actions
+
+name: Build and Deploy to Github Pages
+
+# Controls when the workflow will run
+on:
+  # Triggers the workflow on push or pull request events but only for the master branch
+  push:
+    branches: [ master ]
+
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+
+# A workflow run is made up of one or more jobs that can run sequentially or in parallel
+jobs:
+  # This workflow contains a single job called "build"
+  build:
+    # The type of runner that the job will run on
+    runs-on: ubuntu-latest
+    strategy:
+          matrix:
+            node-version: [16.x]
+            base_href: [vagas-java]
+    # Steps represent a sequence of tasks that will be executed as part of the job
+    steps:
+      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+      - uses: actions/checkout@v2
+      
+      - name: Angular Deploy gh-pages Actions
+        # You may pin to the exact commit or the version.
+        # uses: AhsanAyaz/angular-deploy-gh-pages-actions@0e4f1a953d00116ca38fbf1bcdb37f91923015ef
+        uses: AhsanAyaz/angular-deploy-gh-pages-actions@v1.3.2
+        with:
+          # Github access token token used to deploy on gh_pages. You can find it on Github.
+          github_access_token: ${{ secrets.GITHUB_TOKEN }}
+          # The directory of the angular project, in which all the commands will run. It's optional, default is ./
+          angular_project_dir: ./codigofonte/ionicv4/soujavaVagas/ 
+          # Build configuration for the angular app
+          build_configuration: production # optional, default is production
+          # base href for the app
+          base_href: /${{ matrix.base_href }}/ # optional, default is /
+          # branch on which the angular build will be deployed
+          deploy_branch: gh-pages # optional, default is gh-pages
+          # The folder in which `ng build` provides its output. This is the folder which will be deployed to the `deploy_branch`.
+          angular_dist_build_folder: dist/${{ matrix.base_href }} # optional, default is dist
+          # If the action should run 'ng lint'
+          # run_lint: # optional
+          # Will not fail the step if anything fails
+          # skip_failure: # optional
