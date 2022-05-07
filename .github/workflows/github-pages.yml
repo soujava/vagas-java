@@ -23,12 +23,12 @@ jobs:
             base_href: [vagas-java]
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
-      - name: 'Preparing work-directory'
-        run: |
-          cp -vrf ./codigofonte/ionicv4/soujavaVagas/* ./
-      
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v2
+      
+      - name: 'Preparing work directory'
+        run: |
+          cp -vrf ./codigofonte/ionicv4/soujavaVagas/* ./
       
       - name: Angular Deploy gh-pages Actions
         # You may pin to the exact commit or the version.
