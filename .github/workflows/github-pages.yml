@@ -23,6 +23,10 @@ jobs:
             base_href: [vagas-java]
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
+      - name: 'Preparing work-directory'
+        run: |
+          cp -vrf ./codigofonte/ionicv4/soujavaVagas/* ./
+      
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v2
       
@@ -34,7 +38,7 @@ jobs:
           # Github access token token used to deploy on gh_pages. You can find it on Github.
           github_access_token: ${{ secrets.GITHUB_TOKEN }}
           # The directory of the angular project, in which all the commands will run. It's optional, default is ./
-          angular_project_dir: ./codigofonte/ionicv4/soujavaVagas/ 
+          # angular_project_dir: ./ 
           # Build configuration for the angular app
           build_configuration: production # optional, default is production
           # base href for the app
