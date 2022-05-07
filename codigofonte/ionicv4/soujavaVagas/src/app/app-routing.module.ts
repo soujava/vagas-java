@@ -9,22 +9,22 @@ const routes: Routes = [
   },
   {
     path: 'home',
-    loadChildren: './pages/home/home.module#HomePageModule'
+    loadChildren: () => import('./pages/home/home.module').then(m => m.HomePageModule)
   },
-  {path: 'vagas', loadChildren: './pages/vagas/vagas.module#VagasPageModule'},
+  {path: 'vagas', loadChildren: () => import('./pages/vagas/vagas.module').then(m => m.VagasPageModule)},
   {
     path: 'github-auth',
-    loadChildren: './github-auth/github-auth.module#GithubAuthPageModule'
+    loadChildren: () => import('./github-auth/github-auth.module').then(m => m.GithubAuthPageModule)
   },
   {
     path: 'cadastro-vaga',
     loadChildren:
-      './pages/cadastro-vaga/cadastro-vaga.module#CadastroVagaPageModule'
+      () => import('./pages/cadastro-vaga/cadastro-vaga.module').then(m => m.CadastroVagaPageModule)
   },
   {
     path: 'cadastro-vaga/:id',
     loadChildren:
-      './pages/cadastro-vaga/cadastro-vaga.module#CadastroVagaPageModule'
+      () => import('./pages/cadastro-vaga/cadastro-vaga.module').then(m => m.CadastroVagaPageModule)
   }
 ];
 
