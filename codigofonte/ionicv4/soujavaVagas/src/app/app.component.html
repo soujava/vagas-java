@@ -1,6 +1,6 @@
 <ion-app>
-  <ion-split-pane>
-    <ion-menu>
+  <ion-split-pane contentId="main" when="md">
+    <ion-menu contentId="main">
       <ion-header>
         <ion-toolbar>
           <ion-title>Menu</ion-title>
@@ -19,6 +19,7 @@
         </ion-list>
       </ion-content>
     </ion-menu>
-    <ion-router-outlet main></ion-router-outlet>
+    <!-- the main content -->
+    <ion-router-outlet id="main"></ion-router-outlet>
   </ion-split-pane>
 </ion-app>

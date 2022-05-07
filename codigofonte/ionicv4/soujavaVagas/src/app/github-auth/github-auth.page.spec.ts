@@ -1,5 +1,5 @@
 import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 
 import { GithubAuthPage } from './github-auth.page';
 
@@ -7,7 +7,7 @@ describe('GithubAuthPage', () => {
   let component: GithubAuthPage;
   let fixture: ComponentFixture<GithubAuthPage>;
 
-  beforeEach(async(() => {
+  beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
       declarations: [ GithubAuthPage ],
       schemas: [CUSTOM_ELEMENTS_SCHEMA],

@@ -49,7 +49,7 @@ export class VagasPage implements OnInit {
   }
 
   openNewVaga() {
-    window.open('https://github.com/soujava/vagas-java/issues/new', '_blank');
+    window.open('https://github.com/soujava/vagas-java/issues/new/choose', '_blank');
   }
 
   getLabels(labels) {
