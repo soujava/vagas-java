@@ -43,7 +43,7 @@ jobs:
           # branch on which the angular build will be deployed
           deploy_branch: gh-pages # optional, default is gh-pages
           # The folder in which `ng build` provides its output. This is the folder which will be deployed to the `deploy_branch`.
-          angular_dist_build_folder: ./${{ matrix.work_dir }}/dist # optional, default is dist
+          angular_dist_build_folder: ${{ matrix.work_dir }}/dist # optional, default is dist
           # If the action should run 'ng lint'
           # run_lint: # optional
           # Will not fail the step if anything fails
