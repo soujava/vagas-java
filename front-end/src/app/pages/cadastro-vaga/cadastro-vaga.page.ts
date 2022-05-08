@@ -4,6 +4,7 @@ import { Component, OnInit } from "@angular/core";
 import { Vaga } from "src/app/model/vaga.model";
 import { DomSanitizer } from "@angular/platform-browser";
 import { marked } from "marked";
+import { AlertController, LoadingController } from "@ionic/angular";
 
 @Component({
   selector: "app-cadastro-vaga",
@@ -14,20 +15,59 @@ export class CadastroVagaPage implements OnInit {
   constructor(
     private route: ActivatedRoute,
     private vagaService: VagaService,
-    private sanitizer: DomSanitizer
+    private sanitizer: DomSanitizer,
+    private loadingController: LoadingController,
+    private alertController: AlertController,
+    private router: Router
   ) {}
 
   private renderer = new marked.Renderer();
   private defaultOptions: marked.MarkedOptions = {};
+  
 
   vaga: Vaga;
-  ngOnInit() {
+  async ngOnInit() {
+
+    const  loading = await this.loadingController.create({
+      message: 'Please wait...',
+      spinner:'bubbles'
+    });
+    loading.present();
+
     this.applyDefaultOptions();
     this.vagaService
       .getVagaById(this.route.snapshot.params["id"])
-      .subscribe((result) => {
-        this.vaga = result;
-      });
+      .subscribe(
+        {
+          next:async(result:Vaga)=>{
+              this.vaga = result;
+              await loading.dismiss();
+          },
+          error: async (response: any) => {
+            await loading.dismiss();
+            console.error(response);
+            const { error, statusText } = response;
+            let { message } = error ? error : { message: statusText };
+            
+            const alert = await this.alertController.create({
+              cssClass: "my-custom-class",
+              header: "Ops!!!",
+              message,
+              buttons: [
+                {
+                  text: "OK",
+                  id: "confirm-button",
+                  handler: () => {
+                    this.router.navigate(["home"]);
+                    alert.dismiss();
+                  },
+                },
+              ],
+            });
+            await alert.present();
+          },
+        }
+      );
   }
 
   getContent(content: string) {
