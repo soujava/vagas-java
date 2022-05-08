@@ -2,6 +2,7 @@ import {Vaga} from './../../model/vaga.model';
 import {Component, OnInit} from '@angular/core';
 import {VagaService} from 'src/app/service/vaga.service';
 import {Router} from '@angular/router';
+import { DomSanitizer } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-vagas',

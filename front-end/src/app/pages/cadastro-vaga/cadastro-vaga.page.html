@@ -1,6 +1,10 @@
 <ion-header>
   <ion-toolbar>
-    <ion-menu-button></ion-menu-button>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+      <ion-menu-button></ion-menu-button>
+    
+    </ion-buttons>
     <ion-title>
       Cadastro de vaga
     </ion-title>
@@ -15,12 +19,8 @@
     </ion-item>
     <ion-item>
       <ion-label position="stacked">Descrição</ion-label>
-      <ion-textarea
-        [ngModel]="vaga?.body"
-        rows="15"
-        cols="20"
-        placeholder="Digite da vaga"
-      ></ion-textarea>
+      <div [innerHTML]="getContent(vaga?.body)"></div>
+    
     </ion-item>
     <ion-item>
       <ion-label position="floating">Labels</ion-label>
