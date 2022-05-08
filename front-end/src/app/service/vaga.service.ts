@@ -1,11 +1,12 @@
-import {Vaga} from './../model/vaga.model';
-import {HttpClient} from '@angular/common/http';
-import {Injectable} from '@angular/core';
-import {Observable} from 'rxjs';
-import {BASE_URL_REPOS} from 'src/environments/environment';
+import { Vaga } from "./../model/vaga.model";
+import { HttpClient } from "@angular/common/http";
+import { Injectable } from "@angular/core";
+import { Observable } from "rxjs";
+import { environment } from "src/environments/environment";
 
+const BASE_URL_REPOS = environment.BASE_URL_REPOS;
 @Injectable({
-  providedIn: 'root'
+  providedIn: "root",
 })
 export class VagaService {
   constructor(private http: HttpClient) {}

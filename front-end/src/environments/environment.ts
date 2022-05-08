@@ -3,7 +3,9 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  BASE_URL_REPOS: "https://api.github.com/repos",
+  BASE_URL_ROOT: "https://api.github.com",
 };
 
 /*
@@ -14,6 +16,3 @@ export const environment = {
  * on performance if an error is thrown.
  */
 // import 'zone.js/plugins/zone-error';  // Included with Angular CLI.
-
-export const BASE_URL_REPOS = 'https://api.github.com/repos';
-export const BASE_URL_ROOT = 'https://api.github.com';
