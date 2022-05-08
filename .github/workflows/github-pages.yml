@@ -21,6 +21,7 @@ jobs:
           matrix:
             node-version: [16.x]
             base_href: [vagas-java]
+            work_dir: [codigofonte/ionicv4/soujavaVagas]
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
@@ -34,7 +35,7 @@ jobs:
           # Github access token token used to deploy on gh_pages. You can find it on Github.
           github_access_token: ${{ secrets.GITHUB_TOKEN }}
           # The directory of the angular project, in which all the commands will run. It's optional, default is ./
-          angular_project_dir: ./codigofonte/ionicv4/soujavaVagas/ 
+          angular_project_dir: ${{ matrix.work_dir }} 
           # Build configuration for the angular app
           build_configuration: production # optional, default is production
           # base href for the app
@@ -42,7 +43,7 @@ jobs:
           # branch on which the angular build will be deployed
           deploy_branch: gh-pages # optional, default is gh-pages
           # The folder in which `ng build` provides its output. This is the folder which will be deployed to the `deploy_branch`.
-          angular_dist_build_folder: dist/${{ matrix.base_href }} # optional, default is dist
+          angular_dist_build_folder: ./${{ matrix.work_dir }}/dist/${{ matrix.base_href }} # optional, default is dist
           # If the action should run 'ng lint'
           # run_lint: # optional
           # Will not fail the step if anything fails
