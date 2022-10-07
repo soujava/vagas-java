@@ -13,9 +13,10 @@
 
 <ion-content>
   <ion-list>
+    
     <ion-item>
-      <ion-label position="floating">Titulo</ion-label>
-      <ion-input [ngModel]="vaga?.title"></ion-input>
+      <!-- <ion-input [ngModel]="vaga?.title"></ion-input> -->
+      <h2 [innerHTML]="vaga?.title"></h2>
     </ion-item>
     <ion-item>
       <ion-label position="stacked">Descrição</ion-label>
@@ -23,8 +24,9 @@
     
     </ion-item>
     <ion-item>
-      <ion-label position="floating">Labels</ion-label>
-      <ion-input [ngModel]="getLabels(vaga?.labels)"></ion-input>
+      <!-- <ion-label position="floating">Labels</ion-label>
+      <ion-input [ngModel]="getLabels(vaga?.labels)" [disabled]="true"></ion-input> -->
+      <div [innerHTML]="getLabels(vaga?.labels)"></div>
     </ion-item>
   </ion-list>
 </ion-content>

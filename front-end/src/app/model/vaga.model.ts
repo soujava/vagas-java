@@ -3,7 +3,7 @@ export class Vaga {
   number: number;
   title: String;
   body: string;
-  labels: string[];
+  labels: { name: string }[];
   username: string;
   password: string;
 }

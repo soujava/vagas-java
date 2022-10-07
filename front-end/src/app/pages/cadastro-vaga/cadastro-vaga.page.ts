@@ -23,51 +23,49 @@ export class CadastroVagaPage implements OnInit {
 
   private renderer = new marked.Renderer();
   private defaultOptions: marked.MarkedOptions = {};
-  
 
   vaga: Vaga;
   async ngOnInit() {
-
-    const  loading = await this.loadingController.create({
-      message: 'Please wait...',
-      spinner:'bubbles'
+    const loading = await this.loadingController.create({
+      message: "Please wait...",
+      spinner: "bubbles",
     });
     loading.present();
 
     this.applyDefaultOptions();
-    this.vagaService
-      .getVagaById(this.route.snapshot.params["id"])
-      .subscribe(
-        {
-          next:async(result:Vaga)=>{
-              this.vaga = result;
-              await loading.dismiss();
-          },
-          error: async (response: any) => {
-            await loading.dismiss();
-            console.error(response);
-            const { error, statusText } = response;
-            let { message } = error ? error : { message: statusText };
-            
-            const alert = await this.alertController.create({
-              cssClass: "my-custom-class",
-              header: "Ops!!!",
-              message,
-              buttons: [
-                {
-                  text: "OK",
-                  id: "confirm-button",
-                  handler: () => {
-                    this.router.navigate(["home"]);
-                    alert.dismiss();
-                  },
-                },
-              ],
-            });
-            await alert.present();
-          },
+    this.vagaService.getVagaById(this.route.snapshot.params["id"]).subscribe({
+      next: async (result: Vaga) => {
+        this.vaga = result;
+        await loading.dismiss();
+      },
+      error: async (response: any) => {
+        await loading.dismiss();
+        console.error(response);
+        const { error, statusText } = response;
+        let { message } = error ? error : { message: statusText };
+
+        if (!message && response.message) {
+          message = response.message;
         }
-      );
+
+        const alert = await this.alertController.create({
+          cssClass: "my-custom-class",
+          header: "Ops!!!",
+          message,
+          buttons: [
+            {
+              text: "OK",
+              id: "confirm-button",
+              handler: () => {
+                this.router.navigate(["home"]);
+                alert.dismiss();
+              },
+            },
+          ],
+        });
+        await alert.present();
+      },
+    });
   }
 
   getContent(content: string) {
