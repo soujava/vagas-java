@@ -18,6 +18,7 @@ jobs:
     strategy:
       matrix:
         node-version: [16.x]
+        workDir: [./front-end]
         # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
 
     steps:
@@ -37,16 +38,21 @@ jobs:
         node-version: ${{ matrix.node-version }}
         
     - name: Install Dependencies
+      working-directory: ${{ matrix.workDir }}
       run: npm install
           
     - name: Clean Distribution Directory
+      working-directory: ${{ matrix.workDir }}
       run: npm run ci:clean
 
     - name: Build Application
+      working-directory: ${{ matrix.workDir }}
       run: npm run ci:build
 
     - name: Run Unit Tests
+      working-directory: ${{ matrix.workDir }}
       run: npm run ci:test
 
     - name: List Files in Distribution Directory
+      working-directory: ${{ matrix.workDir }}
       run: ls -R ./dist
