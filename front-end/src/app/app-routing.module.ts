@@ -13,10 +13,6 @@ const routes: Routes = [
   },
   {path: 'vagas', loadChildren: () => import('./pages/vagas/vagas.module').then(m => m.VagasPageModule)},
   {
-    path: 'github-auth',
-    loadChildren: () => import('./github-auth/github-auth.module').then(m => m.GithubAuthPageModule)
-  },
-  {
     path: 'cadastro-vaga',
     loadChildren:
       () => import('./pages/cadastro-vaga/cadastro-vaga.module').then(m => m.CadastroVagaPageModule)

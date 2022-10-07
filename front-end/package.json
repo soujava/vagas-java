@@ -9,7 +9,10 @@
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
-    "e2e": "ng e2e"
+    "e2e": "ng e2e",
+    "ci:clean": "rimraf ./dist",
+    "ci:test": "ng test --watch=false --browsers=ChromeHeadlessCI",
+    "ci:build": "ng build --configuration production"
   },
   "private": true,
   "dependencies": {
