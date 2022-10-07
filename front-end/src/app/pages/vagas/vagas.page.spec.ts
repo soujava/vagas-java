@@ -1,18 +1,24 @@
-import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
-import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
+import { CUSTOM_ELEMENTS_SCHEMA } from "@angular/core";
+import { HttpClientTestingModule } from "@angular/common/http/testing";
+import { RouterTestingModule } from "@angular/router/testing";
+import {
+  ComponentFixture,
+  TestBed,
+  waitForAsync,
+} from "@angular/core/testing";
 
-import { VagasPage } from './vagas.page';
+import { VagasPage } from "./vagas.page";
 
-describe('VagasPage', () => {
+describe("VagasPage", () => {
   let component: VagasPage;
   let fixture: ComponentFixture<VagasPage>;
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      declarations: [ VagasPage ],
+      imports: [HttpClientTestingModule, RouterTestingModule],
+      declarations: [VagasPage],
       schemas: [CUSTOM_ELEMENTS_SCHEMA],
-    })
-    .compileComponents();
+    }).compileComponents();
   }));
 
   beforeEach(() => {
@@ -21,7 +27,7 @@ describe('VagasPage', () => {
     fixture.detectChanges();
   });
 
-  it('should create', () => {
+  it("should create", () => {
     expect(component).toBeTruthy();
   });
 });
