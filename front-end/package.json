@@ -27,7 +27,7 @@
     "@ionic-native/status-bar": "^5.36.0",
     "@ionic/angular": "^6.0.13",
     "cordova-browser": "^6.0.0",
-    "core-js": "^2.5.4",
+    "core-js": "^2.6.12",
     "firebase": "^9.8.0",
     "marked": "^4.0.15",
     "node-forge": ">=1.3.0",
