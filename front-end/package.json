@@ -34,7 +34,7 @@
     "rxjs": "^6.6.0",
     "shelljs": ">=0.8.5",
     "tslib": "^2.5.0",
-    "zone.js": "~0.11.4"
+    "zone.js": "~0.11.8"
   },
   "devDependencies": {
     "@angular-devkit/architect": "~0.1202.17",
