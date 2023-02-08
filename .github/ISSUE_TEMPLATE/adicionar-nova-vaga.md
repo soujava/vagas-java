@@ -7,8 +7,9 @@ labels: ['job opportunity']
 ---
 
 ## Descrição da vaga
+<!-- Informe mais detalhes sobre a vaga --> 
 
-Projeto X com Tensorflow, 8 meses, com equipe Y e etc.
+Projeto X que utiliza Spring, JPA, 8 meses, com equipe Y e etc.
 
 ## Local
 
@@ -32,14 +33,15 @@ Remoto ou Escritório, São Paulo - Vila Olímpia
 ## Requisitos
 
 #### Obrigatórios:
+<!-- Adicione os detalhes obrigatórios para a vaga -->
 
- - 3 anos de experiência com Python
- - 2 anos de experiência com mongodb e flask
+ - 3 anos de experiência com Java 11
+ - 2 anos de experiência com postgresql, oracle e mongodb
 
 #### Desejáveis:
-
-- Conhecimentos em OpenCV
-- Conhecimentos em Spark
+<!-- Adicione os detalhes desejaveís para a vaga -->
+- Conhecimentos em Spring Boot
+- Conhecimentos em JPA
 
 #### Diferenciais:
 
@@ -55,7 +57,7 @@ Aqui na Corporação ACME somos líderes em...
 
 ## Como se candidatar
 
-Por favor envie um email para email@email.com.br com seu CV anexado - enviar no assunto: Vaga NodeJS
+Informe aqui como o cadidato pode se candidatar a vaga
 
 ## Tempo médio de feedbacks
 
