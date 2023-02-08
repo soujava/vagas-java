@@ -1,7 +1,8 @@
 ---
-name: "[ESTADO] Cargo na [NOME DA EMPRESA]"
+name: Add a new job opportunity / Adicionar nova vaga 
+title: "[ESTADO] Cargo na [NOME DA EMPRESA]"
 about: Resumo da vaga
-labels: 
+labels: ['job opportunity']
 
 ---
 
