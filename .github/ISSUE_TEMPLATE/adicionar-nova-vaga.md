@@ -1,7 +1,7 @@
 ---
 name: Add a new job opportunity / Adicionar nova vaga 
 title: "[ESTADO] Cargo na [NOME DA EMPRESA]"
-about: Resumo da vaga
+about: Promote a new job opportunity here / Promova uma nova vaga aqui
 labels: ['job opportunity']
 
 ---
