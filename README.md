@@ -2,17 +2,23 @@
 
 Espaço para a divulgação de vagas para desenvolvedores Java, utilizando via issues do GitHub.
 
-Vagas disponíveis no link: https://github.com/soujava/vagas-java/issues
+Vagas disponíveis no link: https://github.com/soujava/vagas-java/issues ou https://soujava.github.io/vagas-java/
 
 ### Cadastrando uma vaga
 
-Crie uma **issue** no link: https://github.com/soujava/vagas-java/issues/new
+Crie uma **issue** selecionando o template **"Adicionar uma nova oportunidade de trabalho / Adicionar nova vaga"** através do link:
 
-A issue tem um template específico, basta você editá-lo como desejar. No titulo da issue, coloque o nome da cidade entre colchetes, seguida do nome da vaga e o nome da empresa (se existir), exemplo:
+   https://github.com/soujava/vagas-java/issues/new/choose
+
+A edição já fornece um modelo específico, mas você editar como desejar, porém recomendamos alguns detalhes:
+
+**:warning: No titulo da issue, place o nome da cidade entre colchetes, seguida do nome da vaga e o nome da empresa (se existir), exemplo:**
 
 `[Cidade, Estado] Desenvolvedor Java | ACME LTDA`
 
-Adicione _labels_ contendo o nível de experiência desejada e o formato de contração. 
+**:aviso: Mantenha o _label_ "oportunidade de emprego" para ajudar na classificação em nosso repositório.**
+
+Adicione _rótulos_ caso necessário, há opções contendo o nível de experiência desejado e o formato de contração.
 
 ### Código de Conduta
 
@@ -71,13 +77,19 @@ Jobs available without link: https://github.com/soujava/vagas-java/issues
 
 ### Registering a vacancy
 
-Create a **issue** without link: https://github.com/soujava/vagas-java/issues/new
+Create a **problem** by selecting the template "Add a new job opportunity / Add a new vacancy" via the link:
 
-An issue has a specific template, you just edit it as you wish. In the title of the question, put the name of the city in brackets, ask the name of the company (if it exists), example:
+    https://github.com/soujava/vagas-java/issues/new/choose
+
+The edition has a specific model, you just edit it as you wish, but we recommend some details:
+
+**:warning: In the issue title, place the name of the city in square brackets, followed by the name of the vacancy and the name of the company (if any), example:**
 
 `[City, State] Java Developer | ACME LTDA`
 
-Add _labels_ containing desired experience threshold and shrinkage format.
+**:warning: Keep the _label_ "job opportunity" to help with ranking in our repository.**
+
+Add _labels_ if necessary, there are options containing desired experience level and contraction format.
 
 ### Code of conduct
 
