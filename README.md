@@ -16,7 +16,7 @@ A edição já fornece um modelo específico, mas você editar como desejar, por
 
 `[Cidade, Estado] Desenvolvedor Java | ACME LTDA`
 
-**:warning: Mantenha o _label_ "oportunidade de emprego" para ajudar na classificação em nosso repositório.**
+**:warning: Mantenha o _label_ "job opportunity" para ajudar na classificação em nosso repositório.**
 
 Adicione _rótulos_ caso necessário, há opções contendo o nível de experiência desejado e o formato de contração.
 
