@@ -22,11 +22,7 @@ const ehVaga = (vaga: Vaga) => {
 export class VagaService {
   constructor(private http: HttpClient) {}
 
-  // getAllVagas(): Observable<Vaga[]> {
-  //   return this.http.get<Vaga[]>(
-  //     `${BASE_URL_REPOS}/soujava/vagas-java/issues?state=open&page=1&per_page=100`
-  //   );
-  // }
+  private static readonly allowedLabels = ['job opportunity'];
 
   getAllVagasPaginacao(
     page: number,
@@ -34,7 +30,7 @@ export class VagaService {
   ): Observable<Vaga[]> {
     return this.http
       .get<Vaga[]>(
-        `${BASE_URL_REPOS}/soujava/vagas-java/issues?state=open&page=${page}&per_page=${itensPorPagina}`
+        `${BASE_URL_REPOS}/soujava/vagas-java/issues?state=open&page=${page}&per_page=${itensPorPagina}&labels=${VagaService.allowedLabels}`
       )
       .pipe(
         switchMap((vagas) => {
