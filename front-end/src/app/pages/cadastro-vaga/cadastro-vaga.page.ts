@@ -1,7 +1,7 @@
-import { VagaService } from "src/app/service/vaga.service";
+import { VagaService } from "@service/vaga.service";
 import { Router, ActivatedRoute } from "@angular/router";
 import { Component, OnInit } from "@angular/core";
-import { Vaga } from "src/app/model/vaga.model";
+import { Vaga } from "@model/vaga.model";
 import { DomSanitizer } from "@angular/platform-browser";
 import { marked } from "marked";
 import { AlertController, LoadingController } from "@ionic/angular";
@@ -74,12 +74,7 @@ export class CadastroVagaPage implements OnInit {
   }
 
   getLabels(labels) {
-    if (labels) {
-      let labelMap = labels.map((a) => a.name);
-      if (labelMap.length > 0) {
-        return labelMap.reduce((a) => a + ", ");
-      }
-    }
+    return Vaga.getLabels(labels);
   }
 
   private applyDefaultOptions() {
