@@ -27,35 +27,35 @@ jobs:
         # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
 
     steps:
-    - uses: actions/checkout@v3
+      - uses: actions/checkout@v3
 
-    - name: Cache node modules
-      uses: actions/cache@v3
-      with:
-        path: ~/.npm
-        key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
-        restore-keys: |
-          ${{ runner.os }}-node-
+      - name: Cache node modules
+        uses: actions/cache@v3
+        with:
+          path: ~/.npm
+          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-node-
+            
+      - name: Setup Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v3
+        with:
+          node-version: ${{ matrix.node-version }}
           
-    - name: Setup Node.js ${{ matrix.node-version }}
-      uses: actions/setup-node@v3
-      with:
-        node-version: ${{ matrix.node-version }}
-        
-    - name: Install Dependencies
-      working-directory: ${{ matrix.workDir }}
-      run: npm install
-          
-    - name: Build Application
-      working-directory: ${{ matrix.workDir }}
-      run: npm run build -- --configuration=production --base-href=/${{ matrix.base_href }}/
+      - name: Install Dependencies
+        working-directory: ${{ matrix.workDir }}
+        run: npm install
+            
+      - name: Build Application
+        working-directory: ${{ matrix.workDir }}
+        run: npm run build -- --configuration=production --base-href=/${{ matrix.base_href }}/
 
-    - name: Deploy to GitHub 
-      uses: crazy-max/ghaction-github-pages@v3
-      working-directory: ${{ matrix.workDir }}
-      if: success()
-      with:
-        target_branch: gh-pages
-        build_dir: dist
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: Deploy to GitHub 
+        uses: crazy-max/ghaction-github-pages@v3
+        working-directory: ${{ matrix.workDir }}
+        if: success()
+        with:
+          target_branch: gh-pages
+          build_dir: dist
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
