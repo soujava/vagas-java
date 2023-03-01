@@ -15,36 +15,47 @@ on:
 jobs:
   # This workflow contains a single job called "build"
   build:
+    name: Build and prepare to deploy
     # The type of runner that the job will run on
     runs-on: ubuntu-latest
+
     strategy:
-          matrix:
-            node-version: [16.x]
-            base_href: [vagas-java]
-            work_dir: [front-end]
-    # Steps represent a sequence of tasks that will be executed as part of the job
+      matrix:
+        node-version: [16.x]
+        workDir: [./front-end]
+        base_href: [vagas-java]
+        # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
+
     steps:
-      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
-      - uses: actions/checkout@v3
-      
-      - name: Angular Deploy gh-pages Actions
-        # You may pin to the exact commit or the version.
-        # uses: AhsanAyaz/angular-deploy-gh-pages-actions@0e4f1a953d00116ca38fbf1bcdb37f91923015ef
-        uses: AhsanAyaz/angular-deploy-gh-pages-actions@v1.3.2
-        with:
-          # Github access token token used to deploy on gh_pages. You can find it on Github.
-          github_access_token: ${{ secrets.GITHUB_TOKEN }}
-          # The directory of the angular project, in which all the commands will run. It's optional, default is ./
-          angular_project_dir: ${{ matrix.work_dir }} 
-          # Build configuration for the angular app
-          build_configuration: production # optional, default is production
-          # base href for the app
-          base_href: /${{ matrix.base_href }}/ # optional, default is /
-          # branch on which the angular build will be deployed
-          deploy_branch: gh-pages # optional, default is gh-pages
-          # The folder in which `ng build` provides its output. This is the folder which will be deployed to the `deploy_branch`.
-          angular_dist_build_folder: ${{ matrix.work_dir }}/dist # optional, default is dist
-          # If the action should run 'ng lint'
-          # run_lint: # optional
-          # Will not fail the step if anything fails
-          # skip_failure: # optional
+    - uses: actions/checkout@v3
+
+    - name: Cache node modules
+      uses: actions/cache@v3
+      with:
+        path: ~/.npm
+        key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
+        restore-keys: |
+          ${{ runner.os }}-node-
+          
+    - name: Setup Node.js ${{ matrix.node-version }}
+      uses: actions/setup-node@v3
+      with:
+        node-version: ${{ matrix.node-version }}
+        
+    - name: Install Dependencies
+      working-directory: ${{ matrix.workDir }}
+      run: npm install
+          
+    - name: Build Application
+      working-directory: ${{ matrix.workDir }}
+      run: npm run build -- --configuration=production --base-href=/${{ matrix.base_href }}/
+
+    
+    - name: Deploy to GitHub Pages
+      if: success()
+      uses: crazy-max/ghaction-github-pages@v3
+      with:
+        target_branch: gh-pages
+        build_dir: ${{ matrix.work_dir }}/dist
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
