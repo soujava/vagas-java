@@ -1,5 +1,9 @@
 # Vagas Java - Slack Java Dev BR
 
+[![Build and Test](https://github.com/soujava/vagas-java/actions/workflows/build-test.yml/badge.svg)](https://github.com/soujava/vagas-java/actions/workflows/build-test.yml)
+[![Build and Deploy to Github Pages](https://github.com/soujava/vagas-java/actions/workflows/github-pages.yml/badge.svg)](https://github.com/soujava/vagas-java/actions/workflows/github-pages.yml)
+
+
 Espaço para a divulgação de vagas para desenvolvedores Java, utilizando via issues do GitHub.
 
 Vagas disponíveis no link: https://github.com/soujava/vagas-java/issues ou https://soujava.github.io/vagas-java/
