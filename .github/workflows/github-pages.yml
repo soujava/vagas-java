@@ -54,6 +54,7 @@ jobs:
     - name: Deploy to GitHub Pages
       if: success()
       uses: crazy-max/ghaction-github-pages@v3
+      working-directory: ${{ matrix.workDir }}/../
       with:
         target_branch: gh-pages
         build_dir: ${{ matrix.work_dir }}/dist
