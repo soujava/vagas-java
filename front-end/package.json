@@ -28,7 +28,7 @@
     "@ionic/angular": "^6.5.2",
     "cordova-browser": "^6.0.0",
     "core-js": "^2.6.12",
-    "firebase": "^9.17.1",
+    "firebase": "^10.12.2",
     "marked": "^4.2.12",
     "node-forge": ">=1.3.0",
     "rxjs": "^6.6.0",
