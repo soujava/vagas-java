@@ -5,14 +5,14 @@
   "homepage": "https://ionicframework.com/",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve",
-    "build": "ng build",
-    "test": "ng test",
+    "start": "NODE_OPTIONS=--openssl-legacy-provider ng serve",
+    "build": "NODE_OPTIONS=--openssl-legacy-provider ng build",
+    "test": "NODE_OPTIONS=--openssl-legacy-provider ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
     "ci:clean": "rimraf ./dist",
-    "ci:test": "ng test --watch=false --browsers=ChromeHeadlessCI",
-    "ci:build": "ng build --configuration production"
+    "ci:test": "NODE_OPTIONS=--openssl-legacy-provider ng test --watch=false --browsers=ChromeHeadlessCI",
+    "ci:build": "NODE_OPTIONS=--openssl-legacy-provider ng build --configuration production"
   },
   "private": true,
   "dependencies": {
