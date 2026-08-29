@@ -8,6 +8,8 @@ Espaço para a divulgação de vagas para desenvolvedores Java, utilizando via i
 
 Vagas disponíveis no link: https://github.com/soujava/vagas-java/issues ou https://soujava.github.io/vagas-java/
 
+Você também pode [pesquisar e filtrar as vagas da SouJava no openings.dev](https://openings.dev/communities/soujava/vagas-java). Cada resultado continua levando à issue original neste repositório.
+
 ### Cadastrando uma vaga
 
 Crie uma **issue** selecionando o template **"Adicionar uma nova oportunidade de trabalho / Adicionar nova vaga"** através do link:
